@@ -1,4 +1,4 @@
-package com.yang.demo.config;
+package com.yang.config;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @Order
 @Configuration
 @EnableTransactionManagement(proxyTargetClass = true)
-@EnableJpaRepositories(basePackages = "com.yang.demo.repository")
-@EntityScan(basePackages = "com.yang.demo.entity")
+@EnableJpaRepositories(basePackages = "com.yang.**.repository")
+@EntityScan(basePackages = "com.yang.**.entity")
 public class JpaConfiguration {
 
     @Bean
