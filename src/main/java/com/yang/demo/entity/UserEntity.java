@@ -27,26 +27,26 @@ public class UserEntity implements Serializable {
     private Date createdate;
 
     @ManyToOne
-    @JoinColumn(name = "did")
+    @JoinColumn(name = "department")
     @JsonBackReference
     private DepartmentEntity departmentEntity;
 
 
-    @ManyToMany(cascade = {}, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {}, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = {@JoinColumn(name = "user_id")},
             inverseJoinColumns = {@JoinColumn(name = "roles_id")})
-    private List<RoleEntity> roles;
+    private RoleEntity role;
 
     public UserEntity() {
 
     }
 
-    public List<RoleEntity> getRoles() {
-        return roles;
+    public RoleEntity getRoles() {
+        return role;
     }
 
-    public void setRoles(List<RoleEntity> roles) {
-        this.roles = roles;
+    public void setRoles(RoleEntity role) {
+        this.role = role;
     }
 
     public Long getId() {

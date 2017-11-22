@@ -63,7 +63,7 @@ public class DemoApplicationTests {
 
         List<RoleEntity> roles = roleRepository.findAll();
         Assert.notNull(roles);
-        user.setRoles(roles);
+        //user.setRoles(roles);
 
         userRepository.save(user);
         Assert.notNull(user.getId());
@@ -77,7 +77,7 @@ public class DemoApplicationTests {
         Assert.notNull(page);
         for (UserEntity user: page.getContent()){
             logger.info("====user==== user name:{}, department name:{}, role name:{}", user.getName(),
-                    user.getDepartmentEntity().getName(), user.getRoles().get(0).getName());
+                    user.getDepartmentEntity().getName(), user.getRoles().getName());
         }
     }
 /*
