@@ -51,15 +51,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.3.1</version>
+		</dependency>
 	</dependencies>
-
-	<distributionManagement>
-		<repository>
-			<id>3rdParty</id>
-			<name>Opp-Nexus</name>
-			<url>http://10.0.210.152:8081/repository/maven-public/</url>
-		</repository>
-	</distributionManagement>
 
 	<dependencyManagement>
 		<dependencies>
