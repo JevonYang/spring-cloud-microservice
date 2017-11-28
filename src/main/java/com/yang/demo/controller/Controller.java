@@ -18,6 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/user")
@@ -39,6 +40,8 @@ public class Controller {
 
     @RequestMapping(value = "/list", method = RequestMethod.POST, produces = "application/json")
     public JSONArray userList(){
+        //System.out.println("The following info is user list:\n");
+        //System.out.println(user);
         List<UserEntity> users = userRepository.findAll();
         JSONArray userStr = (JSONArray) JSON.toJSON(users);
         return userStr;
@@ -50,14 +53,14 @@ public class Controller {
         return user;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST, consumes = "text/plain")
-    public String addUser(@RequestBody UserEntity user){
+    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    //@RequestBody
+    public String addUser(@RequestBody String userString) {
 
-        System.out.println(user);
+        JSONObject userJson = new JSONObject();
+        UserEntity user = JSON.parseObject(userString, UserEntity.class);
         user.setCreatedate(new Date());
-        System.out.println(user.getName());
-        System.out.println(user.getRoles().getName());
-        System.out.println(user.getDepartmentEntity().getName());
+        user.setName("Trump");
         userRepository.save(user);
         return "redirect:/list";
     }

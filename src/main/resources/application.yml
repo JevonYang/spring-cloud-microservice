@@ -16,3 +16,16 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+
+#log4j:
+#  rootLogger: info,ServerDailyRollingFile,stdout
+#  appender:
+#    ServerDailyRollingFile: org.apache.log4j.DailyRollingFileAppender
+#      DatePattern: '.'yyyy-MM-dd#
+#      File: test.log
+#      layout: org.apache.log4j.PatternLayout
+#        ConversionPattern: %d{yyyy-MM-dd HH:mm:ss} [%t] %-5p [%c] - %m%n
+#      Append: true
+#    stdout: org.apache.log4j.ConsoleAppender
+#      layout: org.apache.log4j.PatternLayout
+#        ConversionPattern: %d yyyy-MM-dd HH:mm:ss %p [%c] %m%n
