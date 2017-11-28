@@ -5,6 +5,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.yang.APIInfo.entity.Api;
 import com.yang.APIInfo.repository.ApiRepository;
 import com.yang.MicroserviceInfo.entity.MicroService;
+import com.yang.MicroserviceInfo.repository.MicroServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +20,7 @@ public class ApiController {
     ApiRepository apiRepository;
 
     @Autowired
-    MicroService microService;
+    MicroServiceRepository microServiceRepository;
 
     @RequestMapping(value = "/list", method = RequestMethod.POST, produces = "application/json")
     public JSONArray apiList(){
@@ -46,7 +47,7 @@ public class ApiController {
     public Api reviseApi(@PathVariable("id") Long id, @RequestBody String apiJson) {
         Api api = apiRepository.getOne(id);
         Api input = JSON.parseObject(apiJson, Api.class);
-        MicroService service = input.getMicroService();
+        MicroService service = microServiceRepository.findOne(input.getMicroService().getId());
         api.setCreator(input.getCreator());
         api.setDescription(input.getDescription());
         api.setMicroService(service);
