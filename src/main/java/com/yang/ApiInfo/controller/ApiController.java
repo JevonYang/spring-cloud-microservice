@@ -1,9 +1,9 @@
-package com.yang.APIInfo.controller;
+package com.yang.ApiInfo.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
-import com.yang.APIInfo.entity.Api;
-import com.yang.APIInfo.repository.ApiRepository;
+import com.yang.ApiInfo.entity.Api;
+import com.yang.ApiInfo.repository.ApiRepository;
 import com.yang.MicroserviceInfo.entity.MicroService;
 import com.yang.MicroserviceInfo.repository.MicroServiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;

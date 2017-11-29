@@ -16,6 +16,18 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+  application:
+    name: api-admin
+logging:
+  file: my.log
+
+eureka:
+  client:
+    service-url: http://10.0.210.148:1111/eureka
+  instance:
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 60
+
 
 #log4j:
 #  rootLogger: info,ServerDailyRollingFile,stdout

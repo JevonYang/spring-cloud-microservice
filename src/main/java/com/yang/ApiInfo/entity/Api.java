@@ -1,4 +1,4 @@
-package com.yang.APIInfo.entity;
+package com.yang.ApiInfo.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.yang.MicroserviceInfo.entity.MicroService;
