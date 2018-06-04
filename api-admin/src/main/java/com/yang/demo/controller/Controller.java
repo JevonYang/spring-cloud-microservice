@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,14 @@ public class Controller {
     DepartmentRepository departmentRepository;
     @Autowired
     RoleRepository roleRepository;
+
+    @Value("${from}")
+    private String from;
+
+    @RequestMapping("from")
+    public String from() {
+        return from;
+    }
 
     @RequestMapping("/hello")
     public String hello () {

@@ -4,6 +4,7 @@ server:
 eureka:
   instance:
     hostname: zuul-gateway
+    instance-id: ${spring.application.name}
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
@@ -12,3 +13,5 @@ spring:
     service-registry:
       auto-registration:
         enabled: true
+  application:
+    name: zuul-gateway

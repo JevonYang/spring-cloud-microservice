@@ -10,7 +10,8 @@
 		<module>eureka</module>
 		<module>api-admin</module>
 		<module>gateway</module>
-	</modules>
+        <module>config</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>spring-cloud-microservice</name>
