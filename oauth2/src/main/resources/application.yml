@@ -1,0 +1,62 @@
+spring:
+  application:
+    name: OAuth2-server
+  datasource:
+    druid:
+      url: jdbc:mysql://localhost:3306/mydb?characterEncoding=utf8
+      username: root
+      password: 123456
+      db-type: mysql
+      driver-class-name: com.mysql.jdbc.Driver
+      max-active: 10
+      initial-size: 1
+      max-wait: 6000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 20
+      filters: stat,wall,log4j
+      connect-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      use-global-data-source-stat: true
+      stat-view-servlet:
+        login-username: admin
+        login-password: 123456
+  redis:
+    host: 10.0.210.152
+    port: 6379
+    pool:
+      max-active: 8
+      max-idle: 8
+      max-wait: -1
+      min-idle: 0
+    database: 1
+
+mybatis:
+  type-aliases-package: com.yang.entity
+  mapper-locations: mapper/*.xml
+  configuration:
+    cache-enabled: true
+    multiple-result-sets-enabled: true
+    aggressive-lazy-loading: true
+    use-column-label: true
+    use-generated-keys: false
+    auto-mapping-behavior: partial
+    default-executor-type: simple
+    map-underscore-to-camel-case: true
+    local-cache-scope: session
+    jdbc-type-for-null: null
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: ${spring.application.name}
+
+server:
+  port: 9999

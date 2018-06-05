@@ -3,10 +3,10 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/microservice?characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8
     username: root
     password: 123456
-    driver-class-name: com.mysql.cj.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
   jpa:
     database: mysql
     show-sql: true
@@ -29,3 +29,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:9999/user
+      id: api-admin
+      prefer-token-info: true
+      load-balanced: true
+
+

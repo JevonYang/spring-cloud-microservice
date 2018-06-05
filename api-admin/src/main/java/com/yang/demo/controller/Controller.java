@@ -17,6 +17,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,6 +36,7 @@ public class Controller {
     @Value("${from}")
     private String from;
 
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @RequestMapping("from")
     public String from() {
         return from;
