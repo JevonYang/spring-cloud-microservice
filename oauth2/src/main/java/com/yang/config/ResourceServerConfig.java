@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,14 +23,20 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .exceptionHandling()
-                .authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
+        //http.csrf().disable();
+//                .exceptionHandling()
+//                .authenticationEntryPoint((request, response, authException) -> response.sendError(HttpServletResponse.SC_UNAUTHORIZED))
+//                .and()
+//                .authorizeRequests()
+//                .anyRequest().authenticated()
+//                .and()
+//                .httpBasic();
+        http.authorizeRequests()
+                    .antMatchers("/oauth/*").permitAll()
+                    .antMatchers("/user").permitAll()
+                    .anyRequest().authenticated()
                 .and()
-                .authorizeRequests()
-                .antMatchers("/oauth/*").permitAll()
-                .antMatchers("/user").permitAll()
-                .and()
-                .httpBasic().and().csrf().disable();
+                    .csrf().disable();
+        //http.csrf().disable();
     }
 }

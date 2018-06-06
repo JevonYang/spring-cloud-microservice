@@ -32,7 +32,7 @@ eureka:
 security:
   oauth2:
     resource:
-      user-info-uri: http://localhost:9999/user
+      user-info-uri: http://oauth2-server/user
       id: api-admin
       prefer-token-info: true
       load-balanced: true

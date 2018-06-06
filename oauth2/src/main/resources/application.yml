@@ -60,3 +60,8 @@ eureka:
 
 server:
   port: 9999
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3
