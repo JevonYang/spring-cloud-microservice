@@ -5,6 +5,7 @@ eureka:
   instance:
     hostname: config-server
     instance-id: ${spring.application.name}
+    prefer-ip-address: true
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
@@ -14,7 +15,9 @@ spring:
       server:
         git:
           uri: git@gitee.com:yangzijing/config.git
+          # uri: git@your-git-address:your-config-repo/{application}.git
           search-paths: '{application}'
+          #private-key:
           #username: yourusername
           #password: yourpassword
     service-registry:

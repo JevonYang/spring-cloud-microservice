@@ -17,29 +17,8 @@ import java.util.List;
 @SpringBootTest
 public class Test {
 
-    @Autowired
-    private UserDao userDao;
-
-    @Autowired
-    private RoleDao roleDao;
-
-    @Autowired
-    private AuthorityDao authorityDao;
-
     @org.junit.Test
     public void mybatisTest(){
-        List<Role> roles = roleDao.selectRolesByUsername("yang");
-        for (Role role:roles) {
-            System.out.println(role.getName());
-        }
-
-        List<Authority> authorities = authorityDao.findAuthoritiesByRole(roles);
-
-        for (Authority item: authorities) {
-            System.out.println(item.getName());
-        }
-
-        System.out.println(new BCryptPasswordEncoder().encode("12345678"));
 
     }
 }

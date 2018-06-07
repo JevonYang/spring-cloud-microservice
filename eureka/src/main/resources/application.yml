@@ -14,10 +14,11 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     instance-id: ${spring.application.name}
   client:
-    registerWithEureka: false
+    registerWithEureka: true
     fetchRegistry: true
+    registry-fetch-interval-seconds: 30
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
   server:
     enable-self-preservation: true
-
+    eviction-interval-timer-in-ms: 5000
