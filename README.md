@@ -10,9 +10,9 @@
 项目采用
 - [x] Eureka注册中心
 - [x] Config配置中心
-- [] Oauth2认证中心
-- [] Zuul网关
-- [] api-admin微服务本身
+- [ ] Oauth2认证中心
+- [ ] Zuul网关
+- [ ] api-admin微服务本身
 
 ## 注册中心Eureka
 
